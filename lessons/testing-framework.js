@@ -30,6 +30,22 @@ test('subtract subtracts numbers', () => {
   expect(result).toBe(expected)
 })
 
-/**
- * Answer: Checkout the main branch for the answer.
- */
+function test(title, callback) {
+  try {
+    callback()
+    console.log(`✔ ${title}`);
+  } catch (e) {
+    console.error(`x ${title}`);
+    console.error(e);
+  }
+}
+
+function expect(actual) {
+  return {
+    toBe(expected) {
+      if (actual !== expected) {
+        throw new Error(`${actual} is not equal to ${expected}`)
+      }
+    }
+  }
+}
