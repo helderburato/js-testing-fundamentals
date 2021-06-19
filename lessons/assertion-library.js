@@ -31,3 +31,12 @@ expect(result).toBe(expected)
 /**
  * Answer: Checkout the main branch for the answer.
  */
+function expect(actual) {
+  return {
+    toBe(expected) {
+      if (actual !== expected) {
+        throw new Error(`${actual} is not equal to ${expected}`)
+      }
+    }
+  }
+}
